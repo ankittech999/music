@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player</title>
+    
+</head>
+<body>
+    <div class="container">
+      <div class="music-player">
+        <nav>
+            <div class="circle">
+                    <img src="./arrow_back_ios_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                
+            </div>
+            <div class="circle">
+                   <img src="./menu_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            </div>
+        </nav>
+        <div class="music-image">
+           <img src="./boy2.jpg" alt="" class="resize">
+           <h1>Despacito</h1>
+           <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <audio  id="song">
+            <source src="./01 - Goa Beach (128 Kbps) - DownloadMing.SE.mp3" type="audio/mpeg" >
+        </audio>
+        <input type="range" value="0" id="progress">
+
+        <div class="controls">
+            <div><img src="./backward.svg" alt="" id="backward"></div>
+            <div onclick="playPause()"><img src="./play.svg" alt="" id="ctrlicon"></div>
+            <div><img src="./forward.svg" alt="" id="forward"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+        let songs=['01 - Goa Beach (128 Kbps) - DownloadMing.SE.mp3','01 - Muqabla - DownloadMing.SE.mp3','01 - Sultan Title Track - Salman Khan Version (128 Kbps) - DownloadMing.SE.mp3','01 - Tera Baap Aaya - DownloadMing.SE.mp3']
+        let progress=document.getElementById('progress');
+        let song=document.getElementById('song');
+        let ctrlicon=document.getElementById('ctrlicon');
+        song.onloadedmetadata=function(){
+            progress.max=song.duration;
+            progress.value=song.currentTime;
+
+        }
+        console.log(ctrlicon.src);
+      
+        function playPause(){
+            let src=new URL(ctrlicon.src);
+            let str=src.pathname.toString();
+            str=str.split('/Music%20Player/');
+            if(str[1]=='play.svg'){
+            song.play();
+               ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+
+             }
+        else{
+            song.pause();
+            ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/play.svg'
+        }
+        }
+        if(song.play()){
+            setInterval(()=>{
+                    progress.value=song.currentTime;
+            },500)
+        }
+        
+        var i=0;
+        let backward=document.getElementById('backward');
+        let forward=document.getElementById('forward');
+        ctrlicon.addEventListener('click',()=>{
+    
+        })
+        backward.addEventListener('click',()=>{
+            if(i==0){
+                let tempsrc=songs[3];
+                song.src='./'+tempsrc;
+                song.play();
+                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg';
+                i=3;
+            }
+            else{
+                let tempsrc=songs[i];
+                song.src='./'+tempsrc;
+                song.play();
+                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+                i=i-1;
+            }
+        })
+        forward.addEventListener('click',()=>{
+            if(i==3){
+                let tempsrc=songs[0];
+                song.src='./'+tempsrc;
+                song.play();
+                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+                i=0;
+            }
+            else{
+                i=i+1;
+                let tempsrc=songs[i];
+                song.src='./'+tempsrc;
+                song.play();
+                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+              
+            }
+        })
+        progress.onchange=function(){
+            song.play();
+            song.currentTime=progress.value;
+            ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+        }
+    </script>
+    
+</body>
+</html>
