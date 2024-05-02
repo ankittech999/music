@@ -21,11 +21,11 @@
         </nav>
         <div class="music-image">
            <img src="./boy2.jpg" alt="" class="resize">
-           <h1>Despacito</h1>
-           <p>Lorem ipsum dolor sit amet.</p>
+           <h1 id='songname'></h1>
+           <p id='artistname></p>
         </div>
         <audio  id="song">
-            <source src="./01 - Goa Beach (128 Kbps) - DownloadMing.SE.mp3" type="audio/mpeg" >
+            <source src="./01 - Sultan Title Track - Salman Khan Version (128 Kbps) - DownloadMing.SE.mp3" type="audio/mpeg" >
         </audio>
         <input type="range" value="0" id="progress">
 
@@ -37,10 +37,74 @@
       </div>
     </div>
     <script>
-        let songs=['01 - Goa Beach (128 Kbps) - DownloadMing.SE.mp3','01 - Muqabla - DownloadMing.SE.mp3','01 - Sultan Title Track - Salman Khan Version (128 Kbps) - DownloadMing.SE.mp3','01 - Tera Baap Aaya - DownloadMing.SE.mp3']
+         let data={
+    "music":[
+        {
+            "name":"Sultan Title Track",
+            "artist":"Vishal - Shekhar",
+            "path":"01 - Sultan Title Track - Salman Khan Version (128 Kbps) - DownloadMing.SE.mp3"
+        },
+        {
+            "name":"Yalgaar",
+            "artist":"Ajay Nagar",
+            "path":"01 - Yalgaar (320 Kbps) - DownloadMing.ME.mp3" 
+        }
+        ,
+        {
+            "name":"Dil Ibadat",
+            "artist":"KK",
+            "path":"02 - Dil Ibadat - www.downloadming.com.mp3"
+        },
+        {
+            "name":"Banjaara",
+            "artist":"Mithoon and Mohammed Irfan",
+            "path":"02 Banjaara - Ek Villain ( PagalWorld.com ).mp3"
+        },
+        {
+            "name":"Uska Hi Bana",
+            "artist":"Arijit Singh",
+            "path":"02. Uska Hi Banana.mp3"
+        },
+        {
+        
+                "name":"Wajah Tum Ho",
+                "artist":"Abhijit Vaghani and Gourov-Roshin",
+                "path":"03 Wajah Tum Ho - Hate Story 3 (Armaan Malik) 190Kbps.mp3"
+            
+        },
+        {
+            "name":"Pal",
+            "artist":"Arijit Singh & Shreya Ghoshal",
+            "path":"02 Pal - Jalebi - Arijit Singh.mp3"
+        },
+        {
+            "name":"Brothers Anthem",
+            "artist":"Ajay-Atul and Vishal Dadlani",
+            "path":"Brothers Anthem - Brothers 320 Kbps.mp3"
+        },
+        {
+            "name":"Jalebi Baby",
+            "artist":"Tesher",
+            "path":"Jalebi Baby_320(PagalWorld).mp3"
+        },
+        {
+            "name":"Paisa Hai Toh",
+            "artist":"MellowD, Sachin–Jigar, and Vishal Dadlani",
+            "path":"Paisa-Hai-Toh_320(PagalWorldl).mp3"
+        },
+        {
+            "name":"Awara Sham Hai",
+            "artist":"Meet Bros",
+            "path":"Aawara Shaam Hai - Manjul Khattar.mp3"
+        }
+    ]
+};
         let progress=document.getElementById('progress');
         let song=document.getElementById('song');
         let ctrlicon=document.getElementById('ctrlicon');
+        let sgname=document.getElementById('songname');
+        sgname.innerHTML=data["music"][0]["name"];
+        let artname=document.getElementById('artistname');
         song.onloadedmetadata=function(){
             progress.max=song.duration;
             progress.value=song.currentTime;
@@ -77,14 +141,19 @@
         })
         backward.addEventListener('click',()=>{
             if(i==0){
-                let tempsrc=songs[3];
+                 let tempsrc=data["music"][10]["path"];
+                sgname.innerHTML=data["music"][10]["name"];
+                artname.innerHTML=data["music"][10]["artist"];
                 song.src='./'+tempsrc;
                 song.play();
                 ctrlicon.src='./pause.svg';
-                i=3;
+                i=10;
             }
             else{
-                let tempsrc=songs[i];
+                let tempsrc=data["music"][i]["path"];
+                sgname.innerHTML=data["music"][i]["name"];
+                artname.innerHTML=data["music"][i]["artist"];
+                song.src='./'+tempsrc;
                 song.src='./'+tempsrc;
                 song.play();
                 ctrlicon.src='./pause.svg'
@@ -92,8 +161,10 @@
             }
         })
         forward.addEventListener('click',()=>{
-            if(i==3){
-                let tempsrc=songs[0];
+            if(i==10){
+                let tempsrc=data["music"][0]["path"];
+                sgname.innerHTML=data["music"][0]["name"];
+                artname.innerHTML=data["music"][0]["artist"];
                 song.src='./'+tempsrc;
                 song.play();
                 ctrlicon.src='./pause.svg'
@@ -101,7 +172,9 @@
             }
             else{
                 i=i+1;
-                let tempsrc=songs[i];
+               let tempsrc=data["music"][i]["path"];
+                sgname.innerHTML=data["music"][i]["name"];
+                artname.innerHTML=data["music"][i]["artist"];
                 song.src='./'+tempsrc;
                 song.play();
                 ctrlicon.src='./pause.svg'
