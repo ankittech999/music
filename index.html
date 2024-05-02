@@ -54,12 +54,12 @@
             str=str.split('/Music%20Player/');
             if(str[1]=='play.svg'){
             song.play();
-               ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+               ctrlicon.src='./pause.svg'
 
              }
         else{
             song.pause();
-            ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/play.svg'
+            ctrlicon.src='./play.svg'
         }
         }
         if(song.play()){
@@ -79,14 +79,14 @@
                 let tempsrc=songs[3];
                 song.src='./'+tempsrc;
                 song.play();
-                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg';
+                ctrlicon.src='./pause.svg';
                 i=3;
             }
             else{
                 let tempsrc=songs[i];
                 song.src='./'+tempsrc;
                 song.play();
-                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+                ctrlicon.src='./pause.svg'
                 i=i-1;
             }
         })
@@ -103,14 +103,14 @@
                 let tempsrc=songs[i];
                 song.src='./'+tempsrc;
                 song.play();
-                ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+                ctrlicon.src='./pause.svg'
               
             }
         })
         progress.onchange=function(){
             song.play();
             song.currentTime=progress.value;
-            ctrlicon.src='file:///C:/Users/Acer/Desktop/Music%20Player/pause.svg'
+            ctrlicon.src='./pause.svg'
         }
     </script>
     
