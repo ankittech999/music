@@ -51,7 +51,7 @@
         function playPause(){
             let src=new URL(ctrlicon.src);
             let str=src.pathname.toString();
-            str=str.split('/main/');
+            str=str.split('/music/');
             if(str[1]=='play.svg'){
             song.play();
                ctrlicon.src='./pause.svg'
