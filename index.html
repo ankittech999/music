@@ -31,7 +31,7 @@
 
         <div class="controls">
             <div><img src="./backward.svg" alt="" id="backward"></div>
-            <div onclick="playPause()"><img src="./play.svg" alt="" id="ctrlicon"></div>
+            <div><img src="./play.svg" alt="" id="ctrlicon"></div>
             <div><img src="./forward.svg" alt="" id="forward"></div>
         </div>
       </div>
@@ -52,6 +52,7 @@
             let src=new URL(ctrlicon.src);
             let str=src.pathname.toString();
             str=str.split('/music/');
+            console.log(str);
             if(str[1]=='play.svg'){
             song.play();
                ctrlicon.src='./pause.svg'
@@ -72,7 +73,7 @@
         let backward=document.getElementById('backward');
         let forward=document.getElementById('forward');
         ctrlicon.addEventListener('click',()=>{
-    
+             playPause();
         })
         backward.addEventListener('click',()=>{
             if(i==0){
