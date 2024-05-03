@@ -96,6 +96,36 @@
             "name":"Awara Sham Hai",
             "artist":"Meet Bros",
             "path":"Aawara Shaam Hai - Manjul Khattar.mp3"
+        },
+        {
+            "name":"Hum Tere Bin",
+            "artist":"Anuradha Paudwal and Manhar Udhas",
+            "path":"Hum-Tere-Bin-Ab-Reh-Nahi-Sakte(PaglaSongs).mp3"
+        },
+        {
+            "name":"Desi Boyz",
+            "artist":"B.o.B and KK",
+            "path":"old_DB-Make Some Noise.mp3"
+        },
+        {
+        "name":"Teri Yaadon me",
+        "artist":"KK",
+        "path":"old_The Killer - Teri Yaadon Mein.mp3"
+         },
+        {
+            "name":"You and me",
+            "artist":"Shubh",
+            "path":"You-and-Me(PagalWorlld.Com).mp3"
+        },
+        {
+            "name":"Tum Jaise",
+            "artist":"Rajeev Raja",
+            "path":"Tum-Jaise-Chutiyo-Ka-Sahara-Hai-Dosto(PaglaSongs).mp3"
+        },
+        {
+            "name":"Aam Jahe Munde",
+            "artist":"Pardhaan and Parmish Verma",
+            "path":"new_192_Aam Jahe Munde - Parmish Verma.mp3"
         }
     ]
 };
@@ -148,7 +178,7 @@
                 song.src='./'+tempsrc;
                 song.play();
                 ctrlicon.src='./pause.svg';
-                i=10;
+                i=16;
             }
             else{
                 let tempsrc=data["music"][i]["path"];
@@ -162,7 +192,7 @@
             }
         })
         forward.addEventListener('click',()=>{
-            if(i==10){
+            if(i==16){
                 let tempsrc=data["music"][0]["path"];
                 sgname.innerHTML=data["music"][0]["name"];
                 artname.innerHTML=data["music"][0]["artist"];
